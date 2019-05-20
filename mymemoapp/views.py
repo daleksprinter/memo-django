@@ -11,3 +11,9 @@ def index(request):
 
     memos = Memo.objects.all()
     return render(request, 'index.html', {"memos" : memos})
+
+def detail(request, id):
+    
+    memo = Memo.objects.get(id = id)
+    
+    return render(request, 'detail.html', {"memo" : memo})

@@ -1,16 +1,17 @@
 {% extends "layout.html" %}
 {% block body %}
-    <p>below memo</p>
-
-    <form action = "{% url 'index' %}" method = 'POST'>
-        {% csrf_token %}
-        <textarea name = 'text' rows = '7' cols = '50'></textarea>
-        <input type = 'submit' value = 'send'>
-    </form>
-    <ul>
-        {% for memo in memos %}
-            <li>{{memo.text}}</li>
-        {% endfor %}
-    </ul>
-
+    <div class = 'memoList'>
+        <p>below memo</p>
+        <form action = "{% url 'index' %}" method = 'POST'>
+            {% csrf_token %}
+            <textarea name = 'text' rows = '7' cols = '50'></textarea>
+            <input type = 'submit' value = 'send'>
+        </form>
+        <ul>
+            {% for memo in memos %}
+                <li>{{memo.text}}</li>
+                <a href = "{% url 'detail' id=memo.id %}">Detail</a>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
