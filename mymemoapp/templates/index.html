@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
-    <p>this is template</p>
+    <p>below memo</p>
+    {% for memo in memos %}
+        <p>{{memo.text}}</p>
+    {% endfor %}
 {% endblock %}
