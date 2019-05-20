@@ -1,7 +1,16 @@
 {% extends "layout.html" %}
 {% block body %}
     <p>below memo</p>
-    {% for memo in memos %}
-        <p>{{memo.text}}</p>
-    {% endfor %}
+
+    <form action = "{% url 'index' %}" method = 'POST'>
+        {% csrf_token %}
+        <textarea name = 'text' rows = '7' cols = '50'></textarea>
+        <input type = 'submit' value = 'send'>
+    </form>
+    <ul>
+        {% for memo in memos %}
+            <li>{{memo.text}}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
