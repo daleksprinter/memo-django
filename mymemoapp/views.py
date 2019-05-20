@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from mymemoapp.models import Memo, User
+from django.urls import reverse
 
 def index(request):
     if request.method == 'POST':
@@ -17,3 +18,7 @@ def detail(request, id):
     memo = Memo.objects.get(id = id)
     
     return render(request, 'detail.html', {"memo" : memo})
+
+def delete(request, id):
+    Memo.objects.get(id = id).delete()
+    return HttpResponseRedirect(reverse('index'))

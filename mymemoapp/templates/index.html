@@ -11,6 +11,7 @@
             {% for memo in memos %}
                 <li>{{memo.text}}</li>
                 <a href = "{% url 'detail' id=memo.id %}">Detail</a>
+                <a href = "{% url 'delete' id=memo.id %}">Delete</a>
             {% endfor %}
         </ul>
     </div>

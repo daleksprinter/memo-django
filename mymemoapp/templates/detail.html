@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
 {% block body %}
     <div>{{memo.text}}</div>
+    <a href = "{% url 'index' %}">Back</a>
 {% endblock %}
